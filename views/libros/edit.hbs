@@ -1,0 +1,41 @@
+<div class="container mt-4" style="max-width: 600px;">
+    <h2 class="text-center">Editar Libro</h2>
+    <form action="/libros/edit/{{libro._id}}" method="POST">
+        <div class="form-group">
+            <label for="titulo">Título</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" value="{{libro.titulo}}" maxlength="45" required>
+        </div>
+        <div class="form-group">
+            <label for="autor">Autor</label>
+            <input type="text" class="form-control" id="autor" name="autor" value="{{libro.autor}}" maxlength="45" required>
+        </div>
+        <div class="form-group">
+            <label for="portada">Portada (URL o nombre de archivo)</label>
+            <input type="text" class="form-control" id="portada" name="portada" value="{{libro.portada}}" maxlength="45">
+        </div>
+        <div class="mb-3">
+            <label for="id_categoria" class="form-label">Categoría</label>
+            <select class="form-control" id="id_categoria" name="id_categoria" required>
+                <option value="" disabled selected>Seleccione una categoría</option>
+                {{#each categorias}}
+                    <option value="{{this._id}}">{{this.nombre_categoria}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha_publicacion">Fecha de Publicación</label>
+            <input type="date" class="form-control" id="fecha_publicacion" name="fecha_publicacion" value="{{libro.fecha_publicacion}}" required>
+        </div>
+        <div class="form-group">
+            <label for="isbn">ISBN</label>
+            <input type="text" class="form-control" id="isbn" name="isbn" value="{{libro.isbn}}" maxlength="45" required>
+        </div>
+        <div class="form-group">
+            <label for="cantidad_disponible">Cantidad Disponible</label>
+            <input type="number" class="form-control" id="cantidad_disponible" name="cantidad_disponible" value="{{libro.cantidad_disponible}}" min="0" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='/libros/list'">Cancelar</button>
+    </form>
+</div>

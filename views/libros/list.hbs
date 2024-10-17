@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <h2>Listado de Libros</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID Libro</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Categoría</th> <!-- Nueva columna para la categoría -->
+                <th>Fecha de Publicación</th>
+                <th>ISBN</th>
+                <th>Cantidad Disponible</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each libros}}
+            <tr>
+                <td>{{_id}}</td>
+                <td>{{titulo}}</td>
+                <td>{{autor}}</td>
+                <td>{{id_categoria.nombre_categoria}}</td> <!-- Mostrar el nombre de la categoría -->
+                <td>{{formatDate fecha_publicacion}}</td> <!-- Utiliza el helper para formatear -->
+                <td>{{isbn}}</td>
+                <td>{{cantidad_disponible}}</td>
+                <td>
+                    <!-- Formulario para el botón de Actualizar -->
+                    <form action="/libros/edit/{{_id}}" method="GET" style="display:inline;">
+                        <button type="submit" class="btn btn-warning">Editar</button>
+                    </form>
+                    
+                    <!-- Formulario para el botón de Eliminar -->
+                    <form action="/libros/delete/{{_id}}" method="POST" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este libro?');">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <!-- Botón para añadir un nuevo libro -->
+    <a href="/libros/add" class="btn btn-primary">Añadir Libro</a>
+</div>

@@ -1,0 +1,65 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f1ea; /* Fondo cálido y neutro */
+    color: #4a4a4a;
+}
+
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #2e2b26; /* Oscuro para recordar estantes de madera */
+}
+
+.container {
+    margin-top: 30px;
+}
+
+h2 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #795548; /* Marrón cálido */
+}
+
+.table {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #4e342e; /* Marrón oscuro */
+    color: #fff;
+}
+
+.table tbody tr {
+    transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+    background-color: #d7ccc8; /* Color claro para resaltar */
+}
+
+.btn {
+    border-radius: 50px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-warning {
+    background-color: #a1887f; /* Marrón claro */
+    border: none;
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background-color: #8d6e63; /* Marrón más oscuro */
+    box-shadow: 0 4px 8px rgba(138, 88, 73, 0.3);
+}
+
+.btn-danger {
+    background-color: #c62828;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #b71c1c;
+    box-shadow: 0 4px 8px rgba(198, 40, 40, 0.3);
+}

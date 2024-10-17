@@ -1,0 +1,35 @@
+<div class="container mt-4" style="max-width: 60%; margin: 0 auto;">
+    <h2>Listado de Categorias</h2>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID Categoria</th>
+                <th>Nombre de la categoria</th>
+                <th>Descripcion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each categorias}}
+            <tr>
+                <td>{{id_categoria}}</td>
+                <td>{{nombre_categoria}}</td>
+                <td>{{descripcion}}</td>
+                <td>
+                    <!-- Formulario para el botón de Actualizar -->
+                    <form action="/categorias/edit/{{_id}}" method="GET" style="display:inline;">
+                        <button type="submit" class="btn btn-warning btn-sm">Editar</button>
+                    </form>
+                    
+                    <!-- Formulario para el botón de Eliminar -->
+                    <form action="/categorias/delete/{{_id}}" method="POST" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta categoria?');">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <!-- Botón para añadir un nuevo estado de préstamo -->
+    <a href="/categorias/add" class="btn btn-primary">Añadir Categoria</a>
+</div>

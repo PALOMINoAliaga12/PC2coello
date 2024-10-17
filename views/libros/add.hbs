@@ -1,0 +1,40 @@
+<h2>Añadir Libro</h2>
+<form action="/libros/add" method="POST">
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Título</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" maxlength="45" required>
+    </div>
+    <div class="mb-3">
+        <label for="autor" class="form-label">Autor</label>
+        <input type="text" class="form-control" id="autor" name="autor" maxlength="45" required>
+    </div>
+    <div class="mb-3">
+        <label for="portada" class="form-label">Portada (URL o nombre de archivo)</label>
+        <input type="text" class="form-control" id="portada" name="portada" maxlength="45">
+    </div>
+    <div class="mb-3">
+        <label for="id_categoria" class="form-label">Categoría</label>
+        <select class="form-control" id="id_categoria" name="id_categoria" required>
+            <option value="" disabled selected>Seleccione una categoría</option>
+            {{#each categorias}}
+                <option value="{{this._id}}">{{this.nombre_categoria}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="fecha_publicacion" class="form-label">Fecha de Publicación</label>
+        <input type="date" class="form-control" id="fecha_publicacion" name="fecha_publicacion" required>
+    </div>
+    <div class="mb-3">
+        <label for="isbn" class="form-label">ISBN</label>
+        <input type="text" class="form-control" id="isbn" name="isbn" maxlength="45" required>
+    </div>
+    <div class="mb-3">
+        <label for="cantidad_disponible" class="form-label">Cantidad Disponible</label>
+        <input type="number" class="form-control" id="cantidad_disponible" name="cantidad_disponible" min="0" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Añadir</button>
+    <button type="button" class="btn btn-secondary" onclick="window.location.href='/libros/list'">Cancelar</button>
+</form>
+
+
